@@ -216,6 +216,11 @@ ai-platform/
 ```
 ## 🗄️ Banco de Dados Utilizados e Criados
 
+O projeto utiliza PostgreSQL 15 como sistema de gerenciamento de banco de dados relacional, garantindo confiabilidade, integridade e escalabilidade para todos os dados da plataforma.
+
+📁 Modelos de Dados
+Todos os modelos são definidos com SQLAlchemy ORM em ai-backend/src/models/, com relacionamentos claros e validações nativas.
+
 💾  SQLite é utilizado para desenvolvimento e testes. O arquivo do banco de dados está localizado em:  
 
 `ai-backend/src/database/app.db`
@@ -392,16 +397,26 @@ As APIs do backend são projetadas para serem **RESTful**, fornecendo acesso aos
 | `/api/ai/agent_response` | POST | Gera uma resposta de agente inteligente com base no tipo de agente e entrada do usuário. |
 
 -   **`/api/ai/agent_response` (POST)**: Gera uma resposta de agente inteligente com base no tipo de agente e entrada do usuário.
-
-  #
-
-
-## Utilização do Grafana
-
-O **Grafana** é uma ferramenta de código aberto para **visualização e análise de métricas**.  
-Na AI Platform, ele foi configurado para **monitorar os dados gerados pelo backend**, permitindo dashboards interativos e acompanhamento em tempo real.
+  
 
 ---
+
+
+## 🚀📊 Utilização do Grafana
+
+O **Grafana** é uma ferramenta de código aberto para **visualização e análise de métricas**.  
+
+Na **AI Platform**, ele foi configurado para monitorar os dados gerados pelo backend, oferecendo uma experiência **interativa e dinâmica**:  
+
+- 🎛️ **Dashboards Interativos** – Visualize métricas em tempo real com gráficos e painéis customizáveis  
+- 📈 **Visualizações Detalhadas** – Monitore logs e indicadores de performance da aplicação  
+- ⏱️ **Monitoramento Contínuo** – Receba alertas e acompanhe a saúde do sistema 24/7  
+- ⚡ **Insights Rápidos** – Facilita a tomada de decisão com métricas confiáveis e atualizadas  
+
+💡 **Benefício:** Permite uma gestão proativa da plataforma, garantindo performance, estabilidade e insights acionáveis de forma **fluida e visualmente agradável**.
+
+
+#
 
 #### ⚙️ Configuração e Acesso
 
@@ -461,7 +476,12 @@ Todos os serviços (frontend, backend, banco de dados e monitoramento) são orqu
 
 ---
 
+<div align="center">
+
 ### 📦 Serviços Incluídos
+
+</div>
+
 
 <div align="center">
 
@@ -478,71 +498,15 @@ Todos os serviços (frontend, backend, banco de dados e monitoramento) são orqu
 </div>
 
 
+#
 
 
+<div align="center">
 
+<img width="1918" height="1018" alt="Image" src="https://github.com/user-attachments/assets/baa01950-7600-400c-b66e-d540470c3da4" />
 
+</div>
 
-
-
-### Documentação da API (Swagger UI)
-
-A documentação interativa da API está disponível via Swagger UI. Após iniciar o backend, acesse `/swagger` para explorar as rotas, modelos e testar os endpoints diretamente.
-
-**URL do Swagger UI:** `http://localhost:5000/swagger` (ou a URL de deploy do backend seguida de `/swagger`)
-
-## Frontend (Next.js)
-
-O frontend é construído com Next.js, utilizando React para a interface do usuário e Tailwind CSS para estilização. Ele oferece uma experiência de usuário rica e responsiva, seguindo os protótipos fornecidos.
-
-### Páginas e Componentes
-
--   **Páginas:** Login, Dashboard, Agentes, Automações, Integrações, Relatórios.
--   **Componentes Reutilizáveis:** Layout, StatsCard, Chart, etc.
-
-### Estilização e Responsividade
-
--   **Tailwind CSS:** Utilizado para uma estilização rápida e consistente, com foco em um tema azul marinho escuro.
--   **Responsividade:** O design é adaptativo para diferentes tamanhos de tela, garantindo uma boa experiência em dispositivos desktop e mobile.
--   **Fidelidade Visual:** A interface foi desenvolvida para ser 100% fiel aos protótipos visuais fornecidos.
-
-## Configuração e Deploy
-
-### Ambiente de Desenvolvimento
-
-O projeto é configurado para um ambiente de desenvolvimento fácil com Docker:
-
--   **Dockerfiles:** Para o frontend (Next.js) e backend (Flask).
--   **Docker Compose:** Orquestra os serviços, permitindo iniciar todo o ambiente com um único comando.
--   **Variáveis de Ambiente:** Gerenciadas via arquivo `.env` (exemplo em `.env.example`).
-
-### Guia de Deploy
-
-Consulte o arquivo `DEPLOYMENT.md` para instruções detalhadas sobre como implantar o frontend e o backend em diferentes ambientes (Vercel, VPS, EasyPanel, etc.).
-
-## Testes e Validação
-
-### Testes de API
-
-Um script Python (`test_apis.py`) foi criado para realizar testes funcionais em todas as APIs do backend, verificando o status e a resposta dos endpoints.
-
-### Testes de Integração Frontend-Backend
-
-Os testes de integração garantem que a comunicação entre o frontend e o backend funcione corretamente, incluindo autenticação, carregamento de dados e interações com as APIs.
-
-### Validação Visual
-
-A interface do usuário é validada para garantir que corresponda aos protótipos fornecidos, com atenção à estilização, responsividade e funcionalidade dos componentes.
-
-## Monitoramento com Grafana
-
-O Grafana foi configurado para permitir a criação de dashboards de monitoramento para visualizar métricas e logs do sistema em tempo real. Você pode conectar o Grafana ao banco de dados SQLite do backend para criar visualizações personalizadas.
-
-**URL do Grafana:** `http://localhost:3000` (ou a URL de deploy do Grafana)
-
-**Credenciais Padrão:** `admin`/`admin`
-
-**Caminho do Banco de Dados no Container Grafana:** `/var/lib/grafana/data/databases/app.db`
 
 ## Próximos Passos e Melhorias
 
