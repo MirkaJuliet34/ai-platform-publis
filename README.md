@@ -21,7 +21,6 @@
 > **Uma plataforma full-stack completa para automação com inteligência artificial, monitoramento em tempo real e integrações externas — tudo em um único monorepo.**
 
 
-![Private](https://img.shields.io/badge/Status-Privado-red?style=for-the-badge&logo=github)
 ---
 
 ## ⚙️ Backend (Flask - Python)
@@ -507,17 +506,42 @@ Todos os serviços (frontend, backend, banco de dados e monitoramento) são orqu
 
 </div>
 
+---
 
-## Próximos Passos e Melhorias
+![Private](https://img.shields.io/badge/Status-Privado-red?style=for-the-badge&logo=github)
 
--   Implementar testes unitários mais abrangentes para frontend e backend.
--   Adicionar autenticação JWT completa e gerenciamento de sessões.
--   Expandir os serviços de IA com mais modelos e funcionalidades.
--   Melhorar a gestão de erros e logging.
--   Implementar um sistema de notificação em tempo real.
--   Otimizar o desempenho do frontend e backend para produção em larga escala.
+<div align="center">
+
+<img width="1913" height="796" alt="Image" src="https://github.com/user-attachments/assets/afa12394-4c29-4e1b-a313-36f8dbd4d7c3" />
+
+</div>
 
 ---
+
+### 🌟 Próximos Passos e Melhorias
+
+Para evoluir a **AI Platform** e torná-la ainda mais robusta, os próximos passos incluem:  
+
+- 🧪 **Testes Unitários Avançados** – Cobertura completa para frontend e backend  
+- 🔐 **Autenticação JWT Completa** – Gerenciamento seguro de sessões de usuários  
+- 🤖 **Expansão dos Serviços de IA** – Novos modelos e funcionalidades inteligentes  
+- 🛠️ **Gestão de Erros e Logging Aprimorada** – Monitoramento confiável e rastreável  
+- 📡 **Notificações em Tempo Real** – Alertas instantâneos para eventos importantes  
+- ⚡ **Otimização de Performance** – Frontend e backend prontos para produção em larga escala  
+
+💡 **Objetivo:** Garantir **confiabilidade, escalabilidade e experiência aprimorada** para usuários e administradores da plataforma.
+
+---
+<div align="center">
+
+✨🚀 **Meu Linkedin!** 🚀✨  
+🔗 [💼Só clicar aqui!](https://www.linkedin.com/in/mirka-juliet-9bb590148/) 🔗  
+
+🌟📌 É necessário passar pelo processo! 📌🌟
+
+</div>
+
+
 
 
 
