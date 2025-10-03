@@ -1,45 +1,115 @@
-# Documentação de Workflow e Estrutura do Projeto AI Platform
+<h1 align="center">🤖 AI Platform – Plataforma Inteligente de Automação com IA</h1>
 
 
-## 1. Estrutura do Projeto
+<p align="center">
+  <a href="https://youtu.be/SEU_VIDEO_ID">
+    <img src="https://github.com/user-attachments/assets/50455849-d499-4dcd-96bc-cd84ab84a219" alt="Assista ao vídeo"/>
+  </a>
+</p>
 
-A aplicação está organizada em uma estrutura de monorepo simplificada, com diretórios dedicados para o frontend, backend e configurações de containerização. A estrutura principal é a seguinte:
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white"/>
+</p>
 
 
+> **Uma plataforma full-stack completa para automação com inteligência artificial, monitoramento em tempo real e integrações externas — tudo em um único monorepo.**
 
-## 2. Backend (Flask - Python)
+![Private](https://img.shields.io/badge/Status-Privado-red?style=for-the-badge&logo=github)
+---
 
-O backend é o coração da aplicação, responsável pela lógica de negócios, interação com o banco de dados e exposição das APIs RESTful.
+## ⚙️ Backend (Flask - Python)
 
-### 2.1. Arquivos de Código e Lógica de Programação
+O **coração da aplicação** — responsável pela lógica de negócios, APIs RESTful, banco de dados e integração com serviços de IA.
 
--   **`ai-backend/main.py`**: É o ponto de entrada da aplicação Flask. Ele configura a aplicação, inicializa o banco de dados (SQLAlchemy), registra os Blueprints (rotas da API), configura o CORS e serve arquivos estáticos. Também integra o Swagger UI para documentação da API.
-    -   **Lógica**: Inicialização do Flask, configuração de `SECRET_KEY`, `CORS`, `SQLALCHEMY_DATABASE_URI`. Registro de todos os `Blueprints` das rotas. Inicialização do `SQLAlchemy` e criação de todas as tabelas no contexto da aplicação. Rota para servir o `swagger.json` e arquivos estáticos do frontend (se houver).
+### 📁 Estrutura de Código
 
--   **`ai-backend/src/models/`**: Contém as definições dos modelos de dados usando SQLAlchemy.
-    -   `user.py`: Define o modelo `User` com campos como `id`, `username`, `email`.
-    -   `agent.py`: Define o modelo `Agent` com campos como `id`, `name`, `description`, `status`, `agent_type`.
-    -   `automation.py`: Define o modelo `Automation` com campos como `id`, `name`, `description`, `status`, `integration`.
-    -   `integration.py`: Define o modelo `Integration` com campos como `id`, `name`, `type`, `status`, `service`.
-    -   `log.py`: Define o modelo `Log` com campos como `id`, `timestamp`, `message`, `level`.
-    -   **Lógica**: Cada arquivo define uma classe que herda de `db.Model` (instância de SQLAlchemy). As colunas são definidas usando `db.Column` com seus respectivos tipos e restrições (ex: `primary_key=True`, `unique=True`, `nullable=False`).
+#### 📄 `ai-backend/main.py`
+> **Ponto de entrada da aplicação**
 
--   **`ai-backend/src/routes/`**: Contém os Blueprints para organizar as rotas da API por funcionalidade.
-    -   `auth.py`: Rotas para registro (`/register`) e autenticação de usuários. Utiliza JWT para geração de tokens de acesso.
-    -   `user.py`: Rotas para listar (`/users`), criar (`/users`), obter por ID (`/users/<id>`), atualizar (`/users/<id>`) e deletar (`/users/<id>`) usuários.
-    -   `agents.py`: Rotas para listar (`/`), criar (`/`), obter por ID (`/<id>`), atualizar (`/<id>`) e deletar (`/<id>`) agentes. Inclui uma rota para estatísticas de agentes (`/stats`).
-    -   `automations.py`: Rotas para listar (`/`), criar (`/`), obter por ID (`/<id>`), atualizar (`/<id>`) e deletar (`/<id>`) automações.
-    -   `integrations.py`: Rotas para listar (`/`), criar (`/`), obter por ID (`/<id>`), atualizar (`/<id>`) e deletar (`/<id>`) integrações.
-    -   `ai_services.py`: Rotas para serviços de IA como OCR (`/ocr`), transcrição (`/transcribe`), tradução (`/translate`), geração de resposta de agente (`/agent_response`) e análise de sentimento (`/sentiment`).
-    -   **Lógica**: Cada arquivo define um `Blueprint` que agrupa rotas relacionadas. As rotas são decoradas com `@blueprint.route()` e os métodos HTTP permitidos são especificados. Funções de view processam as requisições, interagem com os modelos de dados e serviços, e retornam respostas JSON.
+- ✅ Inicializa o Flask com configurações de segurança (`SECRET_KEY`)
+- ✅ Configura **CORS** para permitir requisições do frontend
+- ✅ Integra **SQLAlchemy** com PostgreSQL
+- ✅ Registra todos os **Blueprints** das rotas
+- ✅ Cria automaticamente as tabelas no banco (`db.create_all()`)
+- ✅ Serve arquivos estáticos (frontend) e expõe métricas para **Prometheus**
 
--   **`ai-backend/src/services/ai_service.py`**: Contém a lógica para interagir com serviços de IA.
-    -   **Lógica**: Utiliza a biblioteca `openai` para interações diretas com a API OpenAI e `langchain` para orquestração de modelos de linguagem (LLMs). Implementa métodos como `process_ocr`, `process_transcription`, `process_translation`, `generate_agent_response` e `analyze_sentiment`. Estes métodos são placeholders que simulam a interação com APIs de IA, usando `LangChainOpenAI` para a parte de LLM.
+#### 📁 `ai-backend/src/models/`
+> **Modelos de dados com SQLAlchemy**
 
-### 2.2. Arquivos de Configuração do Backend
+| Arquivo | Entidade | Campos Principais |
+|--------|--------|------------------|
+| `user.py` | 👤 Usuário | `id`, `username`, `email`, `password` |
+| `agent.py` | 🤖 Agente | `id`, `name`, `description`, `status`, `agent_type` |
+| `automation.py` | ⚙️ Automação | `id`, `name`, `description`, `status`, `integration` |
+| `integration.py` | 🔗 Integração | `id`, `name`, `type`, `status`, `service` |
+| `log.py` | 📝 Log | `id`, `timestamp`, `message`, `level` |
 
--   **`ai-backend/requirements.txt`**: Lista todas as bibliotecas Python necessárias para o backend. Inclui `Flask`, `Flask-SQLAlchemy`, `Flask-CORS`, `langchain`, `openai`, `pydantic`, `Flask-Swagger-UI`, entre outros. Essencial para a instalação de dependências (`pip install -r requirements.txt`).
--   **`ai-backend/static/swagger.json`**: Contém a especificação OpenAPI (Swagger 2.0) da API do backend. Este arquivo é lido pelo `Flask-Swagger-UI` para gerar a documentação interativa da API.
+> 💡 Todos os modelos herdam de `db.Model` e usam `db.Column` com restrições como `primary_key`, `unique` e `nullable`.
+
+#### 📁 `ai-backend/src/routes/`
+> **Rotas organizadas por funcionalidade (Blueprints)**
+
+| Arquivo | Rotas | Descrição |
+|--------|------|----------|
+| `auth.py` | `POST /register`, `POST /login` | 🔐 Autenticação com **JWT** |
+| `user.py` | `GET /users`, `POST /users`, `PUT /:id`, `DELETE /:id` | 👥 Gerenciamento de usuários |
+| `agents.py` | `GET /`, `POST /`, `GET /stats` | 🤖 Criação e monitoramento de agentes |
+| `automations.py` | `GET /`, `POST /`, `PUT /:id` | ⚙️ Automações personalizadas |
+| `integrations.py` | `GET /`, `POST /` | 🔌 Conexão com HubSpot, Slack, Salesforce, etc. |
+| `ai_services.py` | `/ocr`, `/transcribe`, `/translate`, `/sentiment` | 🧠 Serviços de IA com **OpenAI + LangChain** |
+
+#### 📄 `ai-backend/src/services/ai_service.py`
+> **Orquestração de IA**
+
+- 🌐 Integração com **OpenAI API** via `openai`
+- 🧩 Orquestração avançada com **LangChain**
+- 📝 Métodos implementados:
+  - `process_ocr()` → Extração de texto de imagens
+  - `process_transcription()` → Transcrição de áudio
+  - `process_translation()` → Tradução automática
+  - `generate_agent_response()` → Respostas inteligentes
+  - `analyze_sentiment()` → Análise de sentimento
+
+> ⚠️ Atualmente usa **mocks** para simular respostas — pronto para conectar a APIs reais!
+
+---
+
+## 🚀 Recursos em Destaque
+
+- ✅ **Autenticação JWT** segura
+- ✅ **Agentes inteligentes** com status em tempo real
+- ✅ **Integrações externas** (HubSpot, Slack, Salesforce, Stripe)
+- ✅ **Monitoramento com Grafana + Prometheus**
+- ✅ **Métricas automáticas** do Flask (`/metrics`)
+- ✅ **Arquitetura containerizada** com Docker Compose
+- ✅ **Pronto para produção** — basta adicionar suas chaves de API
+
+---
+
+## 🐳 Como Rodar Localmente
+
+```bash
+git clone https://github.com/seu-usuario/ai-platform.git
+cd ai-platform
+
+# Crie seu .env (opcional, mas recomendado)
+cp .env.example .env
+
+# Suba tudo com um único comando
+docker-compose up --build -d
+
+# Acesse:
+# 👁️  Frontend: http://localhost:3000
+# 🧠  Backend: http://localhost:5000/api/users
+# 📊  Grafana: http://localhost:3003 (admin/admin)
+# 📈  Prometheus: http://localhost:9090
+
 
 ### 2.3. Banco de Dados Utilizados e Criados
 
