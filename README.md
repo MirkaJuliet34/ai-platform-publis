@@ -429,21 +429,61 @@ Após iniciar o container, o Grafana estará disponível na porta **3000**:
 
 > ⚠️ O Grafana solicitará a alteração da senha no primeiro login.
 
+#
+
+<div align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/55283d60-c61a-40a2-a26d-9d2ca091ef48" 
+    alt="Imagem do Projeto" 
+    width="900"
+  />
+</div>
 
 #
 
 <center>
 
-## ⚙️🚀 Configuração do Docker e Docker Compose para o ambiente de desenvolvimento
+## ⚙️🚀 Configuração do Docker e Docker Compose para o Ambiente de Desenvolvimento
 
 </center>
 
+<center>
+
+<div align="center">
+
+### 🐳 Docker – Orquestração Completa com Docker Compose
+
+</div>
+
+
+O projeto utiliza **Docker** e **Docker Compose** para garantir um ambiente de desenvolvimento **consistente, isolado e pronto para produção**.  
+Todos os serviços (frontend, backend, banco de dados e monitoramento) são orquestrados em um único arquivo `docker-compose.yml`.
+
+---
+
+### 📦 Serviços Incluídos
+
+<div align="center">
+
+| Serviço | Tecnologia | Porta | Descrição |
+|---------|------------|-------|-----------|
+| 🖥️ frontend | Next.js | 3000 | Interface do usuário com dashboards e gerenciamento |
+| 🐍 backend-python | Flask (Python) | 5000 | API RESTful com autenticação JWT e serviços de IA |
+| ⚡ backend-node | Node.js | 3001 | (Futuro) Serviços complementares em Node |
+| 🟦 postgres | PostgreSQL 15 | 5432 | Banco de dados relacional |
+| 📊 grafana | Grafana | 3003 | Visualização de métricas em tempo real |
+| ⏱️ prometheus | Prometheus | 9090 | Coleta de métricas do backend |
+| 📈 metabase | Metabase | 3002 | Business Intelligence e análise de dados |
+
+</div>
 
 
 
-### CORS Configurado
 
-O CORS (Cross-Origin Resource Sharing) está configurado para permitir requisições de qualquer origem (`origins="*"`), facilitando a comunicação com o frontend durante o desenvolvimento e em ambientes de produção.
+
+
+
+
 
 ### Documentação da API (Swagger UI)
 
