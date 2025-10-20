@@ -433,7 +433,7 @@ sudo docker run -d \
 
 Após iniciar o container, o Grafana estará disponível na porta **3000**:
 
-- 🔗 **Local:** [http://localhost:3000](http://localhost:3000)  
+- 🔗 **Local:** [http://localhost:3000](http://localhost:3003)  
 - 🌐 **Sandbox ou servidor:** use a URL correspondente ao ambiente de deploy
 
 **Credenciais Padrão:**
